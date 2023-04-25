@@ -16,7 +16,7 @@
     <div class="account">
         <div class="user">
             <p class="username">John Doe</p>
-            <button href="" class="btn" scale="2" title="Создать новое задание">
+            <button href="" class="btn" scale="2">
                 <img src="" alt="avatar">
             </button>
         </div>
