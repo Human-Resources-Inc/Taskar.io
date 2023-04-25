@@ -1,47 +1,39 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+    <toolbar></toolbar>
   </header>
 
   <main>
-    <TheWelcome />
+
   </main>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
+  header,
+  main {
+    display:grid;
+  }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
   header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    background-color: none;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  main {
+    background-color: --vt-c-black-soft;
   }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
+
+<script>
+  import Toolbar from './components/Toolbar.vue';
+
+  export default {
+    name: "app",
+    components: {
+      "toolbar": Toolbar,
+    }
+  }
+</script>
