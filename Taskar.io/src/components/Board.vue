@@ -10,6 +10,7 @@
         <card></card>
         <card></card>
         <card></card>
+        
     </div>
 </template>
 
@@ -18,8 +19,8 @@
     .board {
         color: black;
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        position: absolute;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-auto-rows: 10em;
     }
 
 </style>
