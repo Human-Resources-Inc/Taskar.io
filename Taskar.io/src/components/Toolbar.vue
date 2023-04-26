@@ -7,7 +7,7 @@
             <button href="" class="btn" title="Дать сотруднику задание">
                 <v-icon name= "bi-person-plus-fill" scale="1.3"/>
             </button>
-            <button href="" class="btn" title="Выбрать несколько заданий" onclick="Test">
+            <button href="" class="btn" title="Выбрать несколько заданий">
                 <v-icon name= "ri-checkbox-multiple-fill" scale="1.3"/>
             </button>
         </div>
@@ -20,14 +20,27 @@
     <div class="account">
         <div class="user">
             <p class="username">mili-ae</p>
-            <button href="" class="btn" scale="2">
+            <button href="" class="btn" id="account-menu-button" @click="openMenu" scale="2">
                 <img src="../images/37480555.jpg" alt="avatar">
             </button>
+            <div class="account-menu" style="display: none;">
+                <ul class="menu">
+                    <li>
+                        <v-icon name="io-settings-sharp" />
+                        Настройки
+                    </li>
+                    <li>
+                        <v-icon name="io-log-out-outline" />
+                        Выйти
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
 
 <style scoped>
+
     button {
         background-color: transparent;
         border: 1px solid white;
@@ -91,4 +104,44 @@
         color: black
     }
 
+    .menu {
+        display: flex;
+        list-style: none;
+        padding: 0.5em 0.5em;
+        width: 8.5em;
+        background: rgb(179, 179, 179);
+        color: black;
+        border-radius: 0.5em;
+        position: absolute;
+        top: 1.5em;
+        right: 1em;
+        z-index: 1;
+        flex-wrap: wrap;
+    }
+
+    .menu li {
+        width: 100%;
+        padding: 5px;
+        border-radius: 0.5em;
+    }
+
+    .menu li:hover {
+        background: rgb(222, 222, 222);
+    }
+
 </style>
+
+<script setup>
+
+    function openMenu() {
+        var menu = document.querySelector(".account-menu");
+
+        if (menu.style.display == "flex"){
+            menu.style.display = "none";
+            return;
+        }
+
+        menu.style.display = "flex";
+    }
+
+</script>

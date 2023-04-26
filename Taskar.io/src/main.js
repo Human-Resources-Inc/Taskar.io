@@ -7,7 +7,11 @@ import {
     BiPersonPlusFill,
     RiCheckboxMultipleFill,
     BiClock,
-    CoPencil
+    CoPencil,
+    IoSettingsSharp,
+    IoLogOutOutline,
+    CoUser,
+    BiKey
 } from "oh-vue-icons/icons";
 
 import './assets/main.css'
@@ -17,6 +21,10 @@ addIcons(BiPersonPlusFill);
 addIcons(RiCheckboxMultipleFill);
 addIcons(BiClock);
 addIcons(CoPencil);
+addIcons(IoSettingsSharp);
+addIcons(IoLogOutOutline);
+addIcons(CoUser);
+addIcons(BiKey);
 
 const app = createApp(App);
 app.component("v-icon", OhVueIcon);
