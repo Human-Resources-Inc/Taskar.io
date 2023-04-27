@@ -17,13 +17,13 @@
         <h1>Taskar.io</h1>
     </div>
 
-    <div class="account">
+    <label class="account" ref="acntMenu">
         <div class="user">
             <p class="username">mili-ae</p>
-            <button href="" class="btn" id="account-menu-button" @click="openMenu" scale="2">
-                <img src="../images/37480555.jpg" alt="avatar">
+            <button href="" class="btn" id="account-menu-button" @click="toggleMenu" scale="2" ref="acntMenu">
+                <img src="../images/37480555.jpg" alt="avatar" ref="acntMenu">
             </button>
-            <div class="account-menu" style="display: none;">
+            <div class="account-menu" ref="acntMenu" v-if="isMenuOpen">
                 <ul class="menu">
                     <li>
                         <v-icon name="io-settings-sharp" />
@@ -36,7 +36,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </label>
 </template>
 
 <style scoped>
@@ -131,17 +131,34 @@
 
 </style>
 
-<script setup>
+<script>
 
-    function openMenu() {
-        var menu = document.querySelector(".account-menu");
+    export default {
+        data() {
+            return {
+                isMenuOpen: false,
+            };
+        },
+        mounted() {
+            document.addEventListener("click", this.handleOutsideClick);
+        },
 
-        if (menu.style.display == "flex"){
-            menu.style.display = "none";
-            return;
+        beforeDestroy() {
+            document.removeEventListener("click", this.handleOutsideClick);
+        },
+        methods: {
+            toggleMenu() {
+                this.isMenuOpen = !this.isMenuOpen
+            },
+            handleOutsideClick(event) {
+                if (!this.$refs.acntMenu.contains(event.target)) {
+                    console.log("Clicked Outside: " + event.target);
+                    if (this.isMenuOpen == false) { return }
+
+                    this.toggleMenu();
+                }
+            }
         }
-
-        menu.style.display = "flex";
     }
 
 </script>

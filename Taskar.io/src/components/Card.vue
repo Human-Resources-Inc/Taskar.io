@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-top">
             <p class="card-name">Lorem ipsum dolor sit amet, consectetur adipisicing ad officia!</p>
-            <button><v-icon name="co-pencil" /></button>
+            <button @click="showPopup"><v-icon name="co-pencil" /></button>
             
         </div>
         <div class="card-bottom">
@@ -82,3 +82,13 @@
 
 </style>
 
+<script>
+    export default {
+        methods: {
+            showPopup() {
+                this.emitter.emit("show-popup")
+                // eventBus.$emit("show-popup");
+            }
+        }
+    }
+</script>

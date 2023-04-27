@@ -11,6 +11,7 @@
         <card></card>
         <card></card>
         
+        <popup></popup>
     </div>
 </template>
 
@@ -23,15 +24,19 @@
         grid-auto-rows: 10em;
     }
 
+    
+
 </style>
 
 <script>
     import Card from './Card.vue';
+    import Popup from './Popup.vue';
 
     export default {
         name: "app",
         components: {
-        "card" : Card,
+        "card"  :   Card,
+        "popup" :   Popup
         }
     }
 </script>
