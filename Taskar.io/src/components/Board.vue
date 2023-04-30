@@ -18,10 +18,13 @@
 <style scoped>
 
     .board {
+        min-height: 100%;
+        min-width: 100%;
         color: black;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         grid-auto-rows: 10em;
+        background-color: #282828;
     }
 
     
